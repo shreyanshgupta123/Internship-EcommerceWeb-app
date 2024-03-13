@@ -1,0 +1,40 @@
+<div class="input-group rounded">
+  <input type="text" placeholder="Enter Pincode" #pincodeInput class="form-control rounded" aria-label="Search" aria-describedby="search-addon">
+  <button style="margin-left: 5px;" mat-raised-button (click)="getLocationData(pincodeInput.value)">Search</button>
+</div>
+<br>
+<div *ngIf="locationData">
+  <div>
+    <h6><span>Area: </span>{{locationData.Name}}</h6>
+  <h6><span>Region : </span>{{locationData.Region}}</h6>
+  <h6><span>State : </span>{{locationData.State}}</h6>
+  <h6><span>Pincode : </span>{{locationData.Pincode}}</h6>
+  <h6 *ngIf="locationData.DeliveryStatus=='Non-Delivery'">
+    <div style="color: red;">
+      <span >
+        DeliveryStatus:
+      </span>
+        {{locationData.DeliveryStatus}}
+        <br>
+        <span>Sorry this product is not deliverable at this pincode </span>
+      </div>
+
+    </h6>
+    <h6 *ngIf="locationData.DeliveryStatus=='Delivery'">
+      <div style="color:rgb(136, 175, 136);">
+        <span >
+          DeliveryStatus:
+        </span>
+          {{locationData.DeliveryStatus}}
+<br>
+<span>
+  Free Delivery
+</span>
+        </div>
+      </h6>
+  </div>
+</div>
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+

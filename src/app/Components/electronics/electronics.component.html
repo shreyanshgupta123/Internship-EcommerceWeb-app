@@ -1,0 +1,65 @@
+
+<app-displaying-multiple-products  *ngIf="Hidecomponent" ></app-displaying-multiple-products>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" closed>
+    Drawer content</mat-drawer>
+  <mat-drawer-content>
+    <ul class="nav" style="background:  #0d6efd;">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">SortBy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Relevance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Popularity</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Price--Low to High</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Price--High to Low</a>
+      </li>
+    </ul>
+  </mat-drawer-content>
+</mat-drawer-container>
+<div class="container" *ngFor="let product of products">
+  <ng-container *ngIf="product.category === 'electronics'">
+    <div class="row">
+      <hr>
+      <div class="col" id="code1">
+        <img [src]="product.image" [alt]="product.title + ' Image'">
+
+      </div>
+      <div class="col">
+        <h4>{{ product.title }}</h4>
+        <ngb-rating [rate]="product.rating.rate" />
+        {{product.rating.rate}} <span style="color: lightslategray;">Rating & Review</span> {{product.rating.count}}
+        <br>
+        <p>{{ product.description }}</p>
+        <button mat-raised-button color="warn" style="margin-left: 10px; margin-bottom: 10px;" >Buy</button>
+        <button mat-raised-button color="primary" style="margin-left: 10px; margin-bottom: 10px;">cart</button>
+        <br>
+      </div>
+
+      <div class="col">
+        <h2>${{ product.price }}</h2>
+
+        <span style="color: green;">20% off</span>
+
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<hr>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" closed>
+    Drawer content</mat-drawer>
+  <mat-drawer-content>
+    <ul class="nav" style="background:  #0d6efd;">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">SortBy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Relevance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Popularity</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Price--Low to High</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Price--High to Low</a>
+      </li>
+    </ul>
+  </mat-drawer-content>
+</mat-drawer-container>
+<div class="container" *ngFor="let product of products">
+  <ng-container *ngIf="product.category=='fragrances'|| product.category=='skincare'" >
+    <div class="row">
+      <hr>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="height: 300px; width: 300px;" >
+        <div class="carousel-inner">
+          <!---->
+          <div class="carousel-item" *ngFor="let imageUrl of product.images; let i = index" [class.active]="i === 0">
+            <img [src]="imageUrl" class="d-block w-100" alt="Product Image" style="height: 180px; width: 300px;">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="col">
+        <h4>{{ product.title }}</h4>
+        <ngb-rating [rate]="product.rating" />
+        {{product.rating}} <span style="color: lightslategray;">Rating & Review</span>
+        <br>
+        <span>Stocks Available:
+       <strong> {{product.stock}}</strong></span>
+        <br>
+        <p>{{ product.description }}</p>
+        <button mat-raised-button color="warn" style="margin-left: 10px; margin-bottom: 10px;" >Buy</button>
+        <button mat-raised-button color="primary" style="margin-left: 10px; margin-bottom: 10px;">cart</button>
+      </div>
+      <div class="col">
+        <h2>${{ product.price }}</h2>
+        <span style="color: green;">{{product.discountPercentage}}% off</span>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+

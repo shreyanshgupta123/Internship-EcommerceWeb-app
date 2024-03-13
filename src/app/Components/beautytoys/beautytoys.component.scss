@@ -1,0 +1,22 @@
+.navbar.navbar-expand-lg.navbar-light {
+  background-color: antiquewhite;
+  background-image: none;
+  border: none;
+}
+img{
+width: 200px;
+justify-self: center;
+}
+#code1{
+  width:10px;
+}
+a{
+  color: white;
+}
+h4::after
+{
+  color:blue;
+}
+#code1 img:hover {
+  transform: scale(1.1);
+}

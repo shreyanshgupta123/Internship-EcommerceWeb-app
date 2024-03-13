@@ -1,0 +1,41 @@
+#image {
+  width: 530px; /* Adjust width as needed */
+  height: 750px; /* Adjust height as needed */
+  background-image: url('https://rukminim2.flixcart.com/www/530/750/promos/26/09/2023/6c3c5fe2-c236-4fa2-8d97-595e1e01da01.jpg?q=80');
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+}
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+mat-card-header img:hover {
+  transform: scale(1.1);
+}
+img{
+  height: 90px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+  clip-path: square(0 0, 100% 0, 100% 100%, 0 80%);
+}
+
+

@@ -1,0 +1,19 @@
+<mat-grid-list cols="7" rowHeight="150px" style="width: 100%;" *ngIf="HideComponent" >
+  <mat-grid-tile *ngFor="let card of cards | async; trackBy: trackByFn" [colspan]="card.cols" [rowspan]="card.rows" (click)="onCardClick(card.title)">
+    <mat-card class="dashboard-card" style="background:white;">
+      <mat-card-header style="padding: 0%; display: flex; justify-content: center;">
+        <img mat-card-image [src]="card.imageUrl" alt="Card Image" style="transition: transform 0.3s ease-in-out;">
+      </mat-card-header>
+
+      <mat-card-content class="dashboard-card-content">
+        <div style="margin-top: 5px;">{{ card.title }}</div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<app-slide2-auto *ngIf="HideComponent"></app-slide2-auto>
+
+<app-slide2-manual *ngIf="HideComponent"></app-slide2-manual>
+<!-- <app-display-selected-item *ngIf="HideComponent" ></app-display-selected-item> -->
+
+

@@ -1,0 +1,30 @@
+<div class="invoice-container">
+  <h2>Invoice</h2>
+
+  <div *ngIf="items.length > 0; else noItems">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td>{{ item.title }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.price | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="total">
+      <h4>Total: {{ total | currency }}</h4>
+    </div>
+  </div>
+
+  <ng-template #noItems>
+    <p>No items selected.</p>
+  </ng-template>
+</div>
